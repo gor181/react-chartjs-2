@@ -14,10 +14,12 @@ class ChartComponent extends React.Component {
       PropTypes.object,
       PropTypes.func
     ]).isRequired,
+    datasetKeyProvider: PropTypes.func,
     getDatasetAtEvent: PropTypes.func,
     getElementAtEvent: PropTypes.func,
     getElementsAtEvent: PropTypes.func,
     height: PropTypes.number,
+    id: PropTypes.string,
     legend: PropTypes.object,
     onElementsClick: PropTypes.func,
     options: PropTypes.object,
@@ -32,7 +34,6 @@ class ChartComponent extends React.Component {
       }
     },
     width: PropTypes.number,
-    datasetKeyProvider: PropTypes.func
   }
 
   static defaultProps = {
@@ -41,10 +42,10 @@ class ChartComponent extends React.Component {
       position: 'bottom'
     },
     type: 'doughnut',
-    height: 150,
-    width: 300,
     redraw: false,
-    options: {},
+    options: {
+      aspectRatio: 2
+    },
     datasetKeyProvider: ChartComponent.getLabelAsKey
   }
 
@@ -308,7 +309,7 @@ export class Doughnut extends React.Component {
       <ChartComponent
         {...this.props}
         ref={ref => this.chartInstance = ref && ref.chartInstance}
-        type='doughnut'
+        type="doughnut"
       />
     );
   }
@@ -320,7 +321,7 @@ export class Pie extends React.Component {
       <ChartComponent
         {...this.props}
         ref={ref => this.chartInstance = ref && ref.chartInstance}
-        type='pie'
+        type="pie"
       />
     );
   }
@@ -332,7 +333,7 @@ export class Line extends React.Component {
       <ChartComponent
         {...this.props}
         ref={ref => this.chartInstance = ref && ref.chartInstance}
-        type='line'
+        type="line"
       />
     );
   }
@@ -344,7 +345,7 @@ export class Bar extends React.Component {
       <ChartComponent
         {...this.props}
         ref={ref => this.chartInstance = ref && ref.chartInstance}
-        type='bar'
+        type="bar"
       />
     );
   }
@@ -356,7 +357,7 @@ export class HorizontalBar extends React.Component {
       <ChartComponent
         {...this.props}
         ref={ref => this.chartInstance = ref && ref.chartInstance}
-        type='horizontalBar'
+        type="horizontalBar"
       />
     );
   }
@@ -368,7 +369,7 @@ export class Radar extends React.Component {
       <ChartComponent
         {...this.props}
         ref={ref => this.chartInstance = ref && ref.chartInstance}
-        type='radar'
+        type="radar"
       />
     );
   }
@@ -380,7 +381,7 @@ export class Polar extends React.Component {
       <ChartComponent
         {...this.props}
         ref={ref => this.chartInstance = ref && ref.chartInstance}
-        type='polarArea'
+        type="polarArea"
       />
     );
   }
@@ -392,7 +393,7 @@ export class Bubble extends React.Component {
       <ChartComponent
         {...this.props}
         ref={ref => this.chartInstance = ref && ref.chartInstance}
-        type='bubble'
+        type="bubble"
       />
     );
   }
@@ -404,7 +405,7 @@ export class Scatter extends React.Component {
       <ChartComponent
         {...this.props}
         ref={ref => this.chartInstance = ref && ref.chartInstance}
-        type='scatter'
+        type="scatter"
       />
     );
   }
